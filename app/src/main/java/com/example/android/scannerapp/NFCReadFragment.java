@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -56,7 +57,13 @@ public class NFCReadFragment extends DialogFragment {
 
     public void onNfcDetected(Ndef ndef){
 
-        readFromNFC(ndef);
+        if(ndef != null) {
+            readFromNFC(ndef);
+        }
+        else {
+            Log.d(TAG, "Read Error: Protected Tag");
+            mTvMessage.setText(getString(R.string.message_read_error));
+        }
     }
 
     private void readFromNFC(Ndef ndef) {

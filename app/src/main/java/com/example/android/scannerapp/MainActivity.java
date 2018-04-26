@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements Listener{
     @Override
     protected void onNewIntent(Intent intent) {
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-        System.out.println(tag);
+        Log.d(TAG, tag.toString());
         Log.d(TAG, "onNewIntent: "+intent.getAction());
 
         if(tag != null) {
