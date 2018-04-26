@@ -75,13 +75,13 @@ public class OrderListingActivity extends AppCompatActivity {
                     orders = jsonObject.getJSONArray(KEY_DATA);
                     //Iterate through the response and populate orders list
                     for (int i = 0; i < orders.length(); i++) {
-                        JSONObject movie = orders.getJSONObject(i);
-                        Integer movieId = movie.getInt(KEY__ID);
-                        String movieName = movie.getString(KEY_PRODUCT_NAME);
+                        JSONObject order = orders.getJSONObject(i);
+                        Integer orderId = order.getInt(KEY_ORDER_ID);
+                        String movieName = order.getString(KEY_PRODUCT_NAME);
                         HashMap<String, String> map = new HashMap<String, String>();
-                        map.put(KEY__ID, movieId.toString());
+                        map.put(KEY_ORDER_ID, orderId.toString());
                         map.put(KEY_PRODUCT_NAME, movieName);
-                        movieList.add(map);
+                        orderList.add(map);
                     }
                 }
             } catch (JSONException e) {
