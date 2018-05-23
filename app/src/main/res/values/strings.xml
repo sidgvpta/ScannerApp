@@ -7,6 +7,8 @@
     <string name="message_read_tag">Read from NFC Tag</string>
     <string name="message_read_error">Error: Protected Tag</string>
     <string name="message_write_tag">Write to NFC Tag</string>
+    <string name="message_populate">Retrieve Order</string>
     <string name="message_tap_tag">Tap the NFC Tag to your device!</string>
     <string name="hint_message">Message</string>
+    <string name="text_message">Message</string>
 </resources>

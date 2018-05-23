@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 
@@ -18,9 +19,10 @@ public class MainActivity extends AppCompatActivity implements Listener{
 
     public static final String TAG = MainActivity.class.getSimpleName();
 
-    private EditText mEtMessage;
-    private Button mBtWrite;
-    private Button mBtRead;
+    private TextView mTvMessage;
+    private Button mBtPopulate;
+//    private Button mBtWrite;
+//    private Button mBtRead;
 
     private NFCWriteFragment mNfcWriteFragment;
     private NFCReadFragment mNfcReadFragment;
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements Listener{
     com.getbase.floatingactionbutton.FloatingActionButton actionAdd;
     com.getbase.floatingactionbutton.FloatingActionButton actionMemo;
 
+    String orderDetails = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements Listener{
 
         initViews();
         initNFC();
-
 
 //        actionAdd.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -58,17 +61,28 @@ public class MainActivity extends AppCompatActivity implements Listener{
 
     private void initViews() {
 
-        mEtMessage = (EditText) findViewById(R.id.et_message);
-        mBtWrite = (Button) findViewById(R.id.btn_write);
-        mBtRead = (Button) findViewById(R.id.btn_read);
+        mTvMessage = (TextView) findViewById(R.id.tv_message);
+        mBtPopulate = (Button) findViewById(R.id.btn_populate);
+//        mBtWrite = (Button) findViewById(R.id.btn_write);
+//        mBtRead = (Button) findViewById(R.id.btn_read);
         actionAdd = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_a);
         actionMemo = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_b);
 
-        mBtWrite.setOnClickListener(view -> showWriteFragment());
-        mBtRead.setOnClickListener(view -> showReadFragment());
+//        mBtWrite.setOnClickListener(view -> showWriteFragment());
+//        mBtRead.setOnClickListener(view -> showReadFragment());
         actionAdd.setOnClickListener(view -> showWriteFragment());
         actionMemo.setOnClickListener(view -> showReadFragment());
+
+        mBtPopulate.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                orderDetails = "This is a sample order";
+                mTvMessage.setText(orderDetails);
+
+            }
+        });
     }
+
 
     private void initNFC(){
 
@@ -151,7 +165,8 @@ public class MainActivity extends AppCompatActivity implements Listener{
 
                 if (isWrite) {
 
-                    String messageToWrite = mEtMessage.getText().toString();
+//                    String messageToWrite = mTvMessage.getText().toString();
+                    String messageToWrite = orderDetails;
                     mNfcWriteFragment = (NFCWriteFragment) getFragmentManager().findFragmentByTag(NFCWriteFragment.TAG);
                     mNfcWriteFragment.onNfcDetected(ndef,messageToWrite);
 
