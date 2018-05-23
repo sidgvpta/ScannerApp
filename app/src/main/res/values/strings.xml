@@ -6,9 +6,14 @@
     <string name="message_tag_detected">NFC Tag Detected!</string>
     <string name="message_read_tag">Read from NFC Tag</string>
     <string name="message_read_error">Error: Protected Tag</string>
+    <string name="message_read_success">Retrieved order details.</string>
     <string name="message_write_tag">Write to NFC Tag</string>
     <string name="message_populate">Retrieve Order</string>
     <string name="message_tap_tag">Tap the NFC Tag to your device!</string>
     <string name="hint_message">Message</string>
-    <string name="text_message">Click the button to retrieve order details...</string>
+    <string name="text_message"></string>
+    <string name="orderDescr_product">Product</string>
+    <string name="orderDescr_store">Store</string>
+    <string name="orderDescr_quantity">Quantity</string>
+    <string name="orderDescr_weight">Unit Weight</string>
 </resources>

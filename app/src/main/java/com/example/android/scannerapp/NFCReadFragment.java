@@ -73,7 +73,8 @@ public class NFCReadFragment extends DialogFragment {
             NdefMessage ndefMessage = ndef.getNdefMessage();
             String message = new String(ndefMessage.getRecords()[0].getPayload());
             Log.d(TAG, "readFromNFC: "+message);
-            mTvMessage.setText(message);
+//            mTvMessage.setText(message);
+            mTvMessage.setText(R.string.message_read_success);
             ndef.close();
 
         } catch (IOException | FormatException e) {

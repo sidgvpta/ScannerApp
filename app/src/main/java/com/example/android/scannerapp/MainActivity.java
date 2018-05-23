@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
@@ -35,7 +37,20 @@ public class MainActivity extends AppCompatActivity implements Listener{
     com.getbase.floatingactionbutton.FloatingActionButton actionAdd;
     com.getbase.floatingactionbutton.FloatingActionButton actionMemo;
 
-    String orderDetails = "";
+    String orderDetails =
+            "Product\tStore\tQuantity\tUnit Weight\n" +
+            "6104940\t526\t1\t1.16\n" +
+            "5412340\t526\t4\t0.26\n" +
+            "5911943\t526\t2\tNULL\n" +
+            "5138614\t526\t1\t0.56\n" +
+            "5577273\t526\t7\tNULL\n" +
+            "5639423\t526\t5\t0.10\n" +
+            "5102551\t526\t12\t0.30\n" +
+            "5639422\t526\t4\t0.62\n" +
+            "6129516\t526\t5\tNULL\n" +
+            "5395096\t526\t3\t0.08\n";
+
+    TableLayout tableLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements Listener{
         getSupportActionBar().setTitle("NFC Tagging");
 
         setContentView(R.layout.activity_main);
+        tableLayout = (TableLayout) findViewById(R.id.list_table);
+        tableLayout.setVisibility(View.GONE);
 
         initViews();
         initNFC();
@@ -76,14 +93,28 @@ public class MainActivity extends AppCompatActivity implements Listener{
 
 //        mBtWrite.setOnClickListener(view -> showWriteFragment());
 //        mBtRead.setOnClickListener(view -> showReadFragment());
-        actionAdd.setOnClickListener(view -> showWriteFragment());
-        actionMemo.setOnClickListener(view -> showReadFragment());
+//        actionAdd.setOnClickListener(view -> showWriteFragment());
+//        actionMemo.setOnClickListener(view -> showReadFragment());
+
+        actionAdd.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showWriteFragment();
+            }
+        });
+
+        actionMemo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                tableLayout.setVisibility(View.GONE);
+                showReadFragment();
+            }
+        });
 
         mBtPopulate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action on click
-                orderDetails = "This is a sample order";
-                mTvMessage.setText(orderDetails);
+//                Perform action on click
+//                orderDetails = "This is a sample order";
+//                mTvMessage.setText(orderDetails);
+                tableLayout.setVisibility(View.VISIBLE);
 
             }
         });
@@ -107,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements Listener{
         }
         mNfcWriteFragment.show(getFragmentManager(),NFCWriteFragment.TAG);
 
+        tableLayout.setVisibility(View.GONE);
     }
 
     private void showReadFragment() {
@@ -180,6 +212,7 @@ public class MainActivity extends AppCompatActivity implements Listener{
 
                     mNfcReadFragment = (NFCReadFragment)getFragmentManager().findFragmentByTag(NFCReadFragment.TAG);
                     mNfcReadFragment.onNfcDetected(ndef);
+                    tableLayout.setVisibility(View.VISIBLE);
                 }
             }
         }
