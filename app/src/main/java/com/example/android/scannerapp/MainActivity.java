@@ -12,6 +12,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements Listener{
 
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements Listener{
 
     private NfcAdapter mNfcAdapter;
 
+    com.getbase.floatingactionbutton.FloatingActionButton actionAdd;
+    com.getbase.floatingactionbutton.FloatingActionButton actionMemo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +40,20 @@ public class MainActivity extends AppCompatActivity implements Listener{
 
         initViews();
         initNFC();
+
+
+//        actionAdd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//        });
+//
+//        actionMemo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
     }
 
     private void initViews() {
@@ -43,9 +61,13 @@ public class MainActivity extends AppCompatActivity implements Listener{
         mEtMessage = (EditText) findViewById(R.id.et_message);
         mBtWrite = (Button) findViewById(R.id.btn_write);
         mBtRead = (Button) findViewById(R.id.btn_read);
+        actionAdd = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_a);
+        actionMemo = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_b);
 
         mBtWrite.setOnClickListener(view -> showWriteFragment());
         mBtRead.setOnClickListener(view -> showReadFragment());
+        actionAdd.setOnClickListener(view -> showWriteFragment());
+        actionMemo.setOnClickListener(view -> showReadFragment());
     }
 
     private void initNFC(){
