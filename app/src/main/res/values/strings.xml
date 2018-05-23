@@ -9,5 +9,4 @@
     <string name="message_write_tag">Write to NFC Tag</string>
     <string name="message_tap_tag">Tap the NFC Tag to your device!</string>
     <string name="hint_message">Message</string>
-    <string name="title_activity_order_listing_acitivity">OrderListingAcitivity</string>
 </resources>
