@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorBackground">#B2DFDB</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#5C6BC0</color>
+    <color name="colorPrimary">#FE1414</color>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <color name="colorPrimaryDark">#CB0101</color>
+    <color name="colorAccent">#FE4D4D</color>
+
+    <color name="red_fab_menu">#FE1414</color>
+    <color name="red_fab_menu_pressed">#FE4D4D</color>
     <color name="purple_fab_menu">#3F51B5</color>
     <color name="purple_fab_menu_pressed">#5C6BC0</color>
+
+    <color name="red_fab">#FE1414</color>
+    <color name="red_fab_pressed">#FE4D4D</color>
     <color name="purple_fab">#3F51B5</color>
     <color name="purple_fab_pressed">#5C6BC0</color>
+
     <color name="black_semi_transparent">#B2000000</color>
     <color name="background">#e5e5e5</color>
     <color name="white">#fafafa</color>
-    <color name="red">#f44336</color>
+    <color name="red">#FE1414</color>
 </resources>

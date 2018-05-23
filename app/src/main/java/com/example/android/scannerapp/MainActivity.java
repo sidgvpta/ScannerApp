@@ -40,6 +40,12 @@ public class MainActivity extends AppCompatActivity implements Listener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.mipmap.logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setTitle("NFC Tagging");
+
         setContentView(R.layout.activity_main);
 
         initViews();
