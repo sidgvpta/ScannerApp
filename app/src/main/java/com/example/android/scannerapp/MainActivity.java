@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements Listener{
         if(tag != null) {
             Toast.makeText(this, getString(R.string.message_tag_detected), Toast.LENGTH_SHORT).show();
             Ndef ndef = Ndef.get(tag);
-            // System.out.println(ndef);
+            System.out.println(ndef);
 
             if (isDialogDisplayed) {
 
